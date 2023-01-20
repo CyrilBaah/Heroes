@@ -20,7 +20,7 @@ spec:
       containers:
         - name: heroes
           imagePullPolicy: Always
-          image: docker push cyrilbaah/heroes:latest
+          image: cyrilbaah/heroes:latest
           resources:
             limits:
               memory: "1.5Gi"
@@ -29,4 +29,4 @@ spec:
               memory: "600Mi"
               cpu: "750m"
           ports:
-          - containerPort: 8081
+          - containerPort: 8080
