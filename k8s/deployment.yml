@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heroes
+spec:
+  selector:
+    matchLabels:
+      app: heroes
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: heroes
+    spec:
+      containers:
+        - name: heroes
+          imagePullPolicy: Always
+          image: docker push cyrilbaah/heroes:latest
+          resources:
+            limits:
+              memory: "1.5Gi"
+              cpu: "1"
+            requests:
+              memory: "600Mi"
+              cpu: "750m"
+          ports:
+          - containerPort: 8081
