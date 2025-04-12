@@ -20,7 +20,7 @@ spec:
       containers:
         - name: heroes
           imagePullPolicy: Always
-          image: cyrilbaah/heroes:latest
+          image: cyrilbaah/heroes
           resources:
             limits:
               memory: "1.5Gi"
