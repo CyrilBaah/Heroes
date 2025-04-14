@@ -62,7 +62,7 @@ list-clusters:
 
 # Make service accessible
 port-forward:
-	kubectl port-forward service/heroes-tour 3000:3000
+	kubectl port-forward service/heroes-service 3000:80
 
 # Clean up all containers and images
 clean:

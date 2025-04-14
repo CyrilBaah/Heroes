@@ -74,3 +74,17 @@ $ openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt
 ```sh
 $ kubectl create secret tls heroes-tour-com --cert tls.crt --key tls.key
 ```
+
+## Install Ingress Controller
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+```
+or
+```sh
+minikube addons enable ingress
+```
+
+## Get Cluster IP
+```sh
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' your-control-plane
+```
